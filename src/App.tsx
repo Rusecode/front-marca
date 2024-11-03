@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './layout/Header'; // Atualize o caminho para o Header
+import Footer from './layout/Footer'; // Atualize o caminho para o Footer
+import ProductList from './components/product/ProductList'; // Mantenha o caminho do ProductList
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header /> {/* Adiciona o cabeçalho */}
+
+        <main>
+          <Routes>
+            <Route path="/" element={<ProductList />} />
+            {/* Adicione mais rotas conforme necessário */}
+          </Routes>
+        </main>
+
+        <Footer /> {/* Adiciona o rodapé */}
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
